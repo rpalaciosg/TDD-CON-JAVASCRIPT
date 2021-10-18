@@ -49,3 +49,72 @@ Se dividen en 2 tipos:
 
 **Ejemplo con Selenium**
 [Selenium](https://www.selenium.dev/)
+
+Creamos un ejemplo con selinum, creamos la carpeta `Ejemplos/selenium-test`, abrimos el terminal y dentro hacemos `npm init`
+
+> Yarn es un gestor de paquetes como npm, para instalarlo solo hacemos `npm install -g yarn`, con esto tendriamos el gestor de paquetes, que seria lo mismo que npm.
+
+El instructor explica que la sintaxis de `yarn` le parece mas facil y que es mas rapido. Ejemplo, es los mismo hacer:
+`yarn add jest` que `npm install --save jest`
+
+Bueno, continuando con selenium, buscando en google `selenium webdriver npm`, nos aparecera este link https://www.npmjs.com/package/selenium-webdriver
+
+Entonces primero en la seccion de Navegadores, debemos descargar el driver segun el navegador que vamos a usar. En este caso googlechrome y firefox, los descomprimios y lo abrimos.
+
+Descargamos el driver necesario para elnavegador que usemos.
+Luego instalamos el paquete npm:
+```npm
+	npm install selenium-webdriver
+```
+
+```yarn
+	yarn add selenium-webdriver
+```
+
+Una vez instalado nos vamos a crear el fichero `Ejemplos/selenium-test/index.js`     
+
+```js
+	const { By, Key, until, webdriver } = require('selenium-webdriver');
+	const chrome = require('selenium-webdriver/chrome');
+	const chromeDriver = 'C:\Users\Richard\Downloads\chromedriver';
+
+	(async function example() {
+		chrome.setDefaultService(new chrome.ServiceBuilder(chromeDriver).build())
+
+		const driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
+		try {
+			await driver.get('http://www/google.co//ncr');
+			await drive.findElement(By.name(name: 'q')).sendKeys(args: 'Keepcoding');
+			await driver.wait(until.titleIs(title:'Keepcoding - Google Search'), 1000);
+		} catch (e) {
+			await driver.quit();
+		}
+	})();
+```
+
+**Selenium** es una libreria para hacer test externos. Por lo tanto la forma de hacer un test externo de nuestra app, es probar nuestra app desde afuera. 
+
+- Basica mente hemos hecho un `get()` esto nos devolvera una pagina web.
+	`await driver.get('http://www/google.co//ncr');`
+
+- Y en `await drive.findElement(By.name(name: 'q')).sendKeys(args: 'Keepcoding');`  estamos buscando un elemento que tenga un atributo 'name' que sea 'q' y le estamos diciendo que le mande 'Keepcoding'."
+
+- Despues `await driver.wait(until.titleIs(title:'Keepcoding - Google Search'), 1000);` que espere hasta que el titulo de la pagina en la que estamos sea 'Keepcoding - Google Search', porque aui no igualamos a ninguna variable? Ps xq lo esta haciendo en un navegador, yo no necesito el codigo del html, lo que estoy haciendo es una navegacion en directo!!
+
+Entonces ejecutamos el codigo con `node index.js`  en realidad lo que hace este scrip es abrir chrome, buscar keepcoding, y cuando el name o titulo de la pagina sea 'keepcodign - google search' cerrar.
+
+Con selenium podemos hacer muchas cosas, lo que queramos, ejecutar clicks, hacer bucles, etc. Un ejemplo es si es que quiero descargar videos, y la pagina solo me lo permite hacer manual ingresando a un link y dandole click en descargar, entonces el instrutor dice se puede hacer un script ue recorra los links de todos los links decarga, ejecutamos click para descargar, luego un retroceso de pagina y asi sucesivamente, esto nos evitara hacer el mismo proceso manual para muchos de los videos.
+
+Alguien pregunta si Selenium es parecido a una herramienta de chrome que se llama puppeter.
+
+Han saldo muchas herramientas, como [cucumber.io](https://cucumber.io/), [puppeteer](https://github.com/puppeteer/puppeteer). 
+Hay herramientas visuales de testing externo que no son con codigo, como [Ghost Inspector](https://ghostinspector.com/), que da una interterfaz web y tu le dices crear test, y tu le pasas la url de la web a testear, y vas a ir viendo la ejecucion, y vas a poder capturar los eventos que haces, es mas simple si, pero es menos poderoso que selenium, en el caso de los scripts selenium te perite hacer eso, mientras estas herramientas no lo tienen.
+
+El instructor menciona que Selenium es mas potente y mas facil de usar con Python, pero es 
+
+**Ejercicio con Selenium**
+
+Vamos a realizar una practica y podemos ver la [selenium documentation](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/).
+
+- Vamos a ir a la pagina plataforma.keepcoding.io, vamos a detectar el boton 'Catalogo de Cursos' y haga click.
+- Ir al url de login, rellenar los campos de usuario y contraseña con cualquier email o contraseña.
