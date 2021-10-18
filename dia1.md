@@ -116,5 +116,7 @@ El instructor menciona que Selenium es mas potente y mas facil de usar con Pytho
 
 Vamos a realizar una practica y podemos ver la [selenium documentation](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/).
 
-- Vamos a ir a la pagina plataforma.keepcoding.io, vamos a detectar el boton 'Catalogo de Cursos' y haga click.
+- Vamos a ir a la pagina plataforma.keepcoding.io, vamos a detectar el botón 'Catalogo de Cursos' y haga click.
 - Ir al url de login, rellenar los campos de usuario y contraseña con cualquier email o contraseña.
+
+Me quede en 1:28:56 
