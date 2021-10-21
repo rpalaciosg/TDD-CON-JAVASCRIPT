@@ -116,7 +116,14 @@ El instructor menciona que Selenium es mas potente y mas facil de usar con Pytho
 
 Vamos a realizar una practica y podemos ver la [selenium documentation](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/).
 
+
 - Vamos a ir a la pagina plataforma.keepcoding.io, vamos a detectar el botón 'Catalogo de Cursos' y haga click.
 - Ir al url de login, rellenar los campos de usuario y contraseña con cualquier email o contraseña.
 
-Me quede en 1:28:56 
+Cuando hago estas cosas, debo tener en cuenta el tiempo de cargo, ejm clicko y espero 5 o 10 segundos. Todo depende de la conexion y velocidad que tengo, entonces espero mas o menos.
+
+> Nota: Recordar que antes debo ejecutar el programa de la extension del navegador con el que quiero probar, ya que eso me abre un puerto para probar la app desde ese puerto.
+
+Hablando sobre las lineas de codigo que se repiten por ejemplo la creacion del driver, seria mejor crear un fichero que cree el driver y devuelva ya creado, asi solo lo importamos y lo usamos directamente para no repetir codigo.
+
+Cuando hacemos test usando selenium, no hay que hacer muchas comprobaciones de la misma pagina en un solo test, porque despues es dificil encontrar cual es el que esta fallando.

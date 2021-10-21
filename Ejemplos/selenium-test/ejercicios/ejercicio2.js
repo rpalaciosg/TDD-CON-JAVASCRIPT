@@ -14,10 +14,14 @@ const chromeDriver = '/home/richard/Downloads/chromedriver_linux64/chromedriver'
     const driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
 
     try {
-        await driver.get('https://plataforma.keepcoding.io/');
-        // await driver.findElement(By.arguments('/sing-in')).click();
-        await driver.find_element_by_css_selector('a[href=/sign_in]').click();
-        await driver.wait(2000);
+      await driver.get('https://plataforma.keepcoding.io');
+      setTimeout(async () => {
+        await driver.findElement(By.linkText('Cursos de pago')).click();
+      }, 2000);
+      // await driver.find_element_by_css_selector('a[href=/sign_in]').click();
+      // const button = await driver.find_element(By.linkText('Cursos de pago'));
+      // button.click();
+      // await driver.wait(2000);
     } catch (e) {
       await driver.quit();
     }
