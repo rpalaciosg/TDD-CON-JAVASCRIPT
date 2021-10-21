@@ -127,3 +127,13 @@ Cuando hago estas cosas, debo tener en cuenta el tiempo de cargo, ejm clicko y e
 Hablando sobre las lineas de codigo que se repiten por ejemplo la creacion del driver, seria mejor crear un fichero que cree el driver y devuelva ya creado, asi solo lo importamos y lo usamos directamente para no repetir codigo.
 
 Cuando hacemos test usando selenium, no hay que hacer muchas comprobaciones de la misma pagina en un solo test, porque despues es dificil encontrar cual es el que esta fallando.
+
+## Test funcionales
+
+- Son test unitarios, se basan en la parte funcional de nuestra aplicacion, y existen varios tipos:
+  - Unitarios
+  - Aceptacion
+  - Regresion
+  - Integracion
+
+	Me quede en 2:20:59
